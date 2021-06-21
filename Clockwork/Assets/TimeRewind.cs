@@ -62,7 +62,7 @@ public class TimeRewind : MonoBehaviour
     void Record ()
     {
         // checks to see if 5 seconds has elapsed and if so removes items from the list
-        if (timePoints.Count >  Mathf.Round(5f / Time.fixedDeltaTime))
+        if (timePoints.Count >  Mathf.Round(10f / Time.fixedDeltaTime))
         {
             timePoints.RemoveAt(timePoints.Count - 1);
         }
