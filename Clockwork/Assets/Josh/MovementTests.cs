@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class MovementTests : MonoBehaviour
 {
+    public SlowTimeManager slowTimeManager;
     int jumpCount = 0;
     public int totalJumps = 3;
     bool isGrounded = true;
     public Rigidbody rb;
     int layer;
     float rayLength;
+    
 
     public float moveSpeed;
     public float jumpForce;
@@ -32,6 +34,7 @@ public class MovementTests : MonoBehaviour
        
     void Update()
      {
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
@@ -40,6 +43,12 @@ public class MovementTests : MonoBehaviour
                 Jump();
             }
         }
+        if (Input.GetKey(KeyCode.E))
+        {
+            slowTimeManager.SlowMotion();
+        }
+            
+        
             
     }
         
