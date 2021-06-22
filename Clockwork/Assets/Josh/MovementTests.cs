@@ -11,6 +11,7 @@ public class MovementTests : MonoBehaviour
     public Rigidbody rb;
     int layer;
     float rayLength;
+
     
 
     public float moveSpeed;
@@ -27,7 +28,7 @@ public class MovementTests : MonoBehaviour
     void FixedUpdate()
     {
         float xMove = Input.GetAxisRaw("Horizontal") * Time.deltaTime;
-        float zMove = Input.GetAxisRaw("Vertical") * Time.deltaTime;
+        float zMove = Input.GetAxisRaw("Vertical") * Time.deltaTime ;
 
         rb.velocity = new Vector3(xMove * moveSpeed, rb.velocity.y, zMove * moveSpeed);
     }
@@ -46,6 +47,10 @@ public class MovementTests : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             slowTimeManager.SlowMotion();
+        }
+        else
+        {
+            slowTimeManager.StopSlowMotion();
         }
             
         

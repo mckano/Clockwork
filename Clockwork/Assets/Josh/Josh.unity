@@ -1107,6 +1107,7 @@ GameObject:
   - component: {fileID: 950212603}
   - component: {fileID: 950212602}
   - component: {fileID: 950212607}
+  - component: {fileID: 950212608}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -1121,7 +1122,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950212601}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 382bd07deede3144a92b89dfd483912b, type: 3}
   m_Name: 
@@ -1219,6 +1220,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &950212608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950212601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adaa6c275d634564db04b2ff3688cf72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  maxCount: 0
 --- !u!1 &1065124389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,6 +1897,7 @@ GameObject:
   - component: {fileID: 1594377926}
   - component: {fileID: 1594377925}
   - component: {fileID: 1594377924}
+  - component: {fileID: 1594377929}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -1926,7 +1942,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594377922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 382bd07deede3144a92b89dfd483912b, type: 3}
   m_Name: 
@@ -1994,6 +2010,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594377922}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1594377929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594377922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adaa6c275d634564db04b2ff3688cf72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  maxCount: 0
 --- !u!1 &1598666443
 GameObject:
   m_ObjectHideFlags: 0
