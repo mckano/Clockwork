@@ -11,6 +11,7 @@ public class MovementTests : MonoBehaviour
     public Rigidbody rb;
     int layer;
     float rayLength;
+    public GameObject player;
 
     
 
@@ -19,6 +20,7 @@ public class MovementTests : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         jumpCount = totalJumps;
         rb = GetComponent<Rigidbody>();
         layer = LayerMask.GetMask("Floor");
@@ -46,8 +48,13 @@ public class MovementTests : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.E))
         {
+            // float xMove = Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * 1;
+            // float zMove = Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime * 1;
+            //  rb.velocity = new Vector3(xMove * moveSpeed, rb.velocity.y, zMove * moveSpeed);
+ 
             slowTimeManager.SlowMotion();
-        }
+           
+        } 
         else
         {
             slowTimeManager.StopSlowMotion();
