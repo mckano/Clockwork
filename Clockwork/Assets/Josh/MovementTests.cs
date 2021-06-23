@@ -51,14 +51,13 @@ public class MovementTests : MonoBehaviour
             // float xMove = Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * 1;
             // float zMove = Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime * 1;
             //  rb.velocity = new Vector3(xMove * moveSpeed, rb.velocity.y, zMove * moveSpeed);
-           
+ 
             slowTimeManager.SlowMotion();
            
         } 
         else
         {
             slowTimeManager.StopSlowMotion();
-           
         }
             
         
