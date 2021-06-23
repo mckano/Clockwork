@@ -6,6 +6,7 @@ public class PlatformMovementTest : MonoBehaviour
 {
     public Vector3 pointB;
     public float speedP;
+    private float defaultSpeed = 16f;
     IEnumerator Start()
     {
        
@@ -22,10 +23,15 @@ public class PlatformMovementTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            speedP = 20.0f;
-        }
+       
+      //  if (Input.GetKeyDown(KeyCode.Z))
+      //  {
+      //      speedP = 70.0f;
+    //    }
+      //  else if (Input.GetKeyUp(KeyCode.Z))
+      //  {
+        //    speedP = defaultSpeed;
+       // }
     }
     private void OnTriggerEnter(Collider collision)
     {
@@ -49,13 +55,27 @@ public class PlatformMovementTest : MonoBehaviour
     IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
     {
         var i = 0.0f;
-        var rate = 3.0f / time;
+        var rate = 4.0f / time;
         while (i < 1.0f)
         {
+            rate = 4.0f / time;
+            // controll the speed of object with movement using Z to speed up and X to slow down
+            if (Input.GetKey(KeyCode.Z))
+            {
+                rate = 20.0f / time;
+            }
+           
+            if (Input.GetKey(KeyCode.X))
+            {
+                rate = 1.0f / time;
+            }
+           
 
             i += Time.deltaTime * rate;
             thisTransform.position = Vector3.Lerp(startPos, endPos, i);
             yield return null;
+
+            rate = 3.0f;
         }
     }
       
