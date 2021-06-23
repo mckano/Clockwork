@@ -7,9 +7,11 @@ public class PlatformMovementTest : MonoBehaviour
     public Vector3 pointB;
     public float speedP;
     private float defaultSpeed = 16f;
+    public GameObject timeCamera;
     IEnumerator Start()
     {
-       
+      
+
         var pointA = transform.position;
         while (true)
         {
@@ -21,18 +23,7 @@ public class PlatformMovementTest : MonoBehaviour
     // Start is called before the first frame update
    
     // Update is called once per frame
-    void Update()
-    {
-       
-      //  if (Input.GetKeyDown(KeyCode.Z))
-      //  {
-      //      speedP = 70.0f;
-    //    }
-      //  else if (Input.GetKeyUp(KeyCode.Z))
-      //  {
-        //    speedP = defaultSpeed;
-       // }
-    }
+
     private void OnTriggerEnter(Collider collision)
     {
         Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
@@ -58,18 +49,44 @@ public class PlatformMovementTest : MonoBehaviour
         var rate = 4.0f / time;
         while (i < 1.0f)
         {
+            
+           
+          
+
             rate = 4.0f / time;
             // controll the speed of object with movement using Z to speed up and X to slow down
             if (Input.GetKey(KeyCode.Z))
             {
+
                 rate = 20.0f / time;
+                
+
             }
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                CameraVhsOn();
+            }
+            if (Input.GetKeyUp(KeyCode.Z))
+            {
+                CameraVhsOff();
+            }
+            
            
             if (Input.GetKey(KeyCode.X))
             {
                 rate = 1.0f / time;
+                
             }
-           
+
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                CameraVhsOn();
+            }
+            if (Input.GetKeyUp(KeyCode.X))
+            {
+                CameraVhsOff();
+            }
+
 
             i += Time.deltaTime * rate;
             thisTransform.position = Vector3.Lerp(startPos, endPos, i);
@@ -77,6 +94,14 @@ public class PlatformMovementTest : MonoBehaviour
 
             rate = 3.0f;
         }
+    }
+    public void CameraVhsOn()
+    {
+        timeCamera.SetActive(true);
+    }
+    public void CameraVhsOff()
+    {
+        timeCamera.SetActive(false);
     }
       
 }

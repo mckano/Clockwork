@@ -8,6 +8,7 @@ public class Test_Rewind : MonoBehaviour
     public bool maxCount;
     Rigidbody rb;
     List<TimePoint> timePoints;
+    public GameObject timeCamera;
 
 
 // Start is called before the first frame update
@@ -48,6 +49,7 @@ public class Test_Rewind : MonoBehaviour
         }
         else
             StopRewind();
+        
     }
 
     void Record()
@@ -73,6 +75,7 @@ public class Test_Rewind : MonoBehaviour
     {
         isRewinding = true;
         rb.isKinematic = true;
+        timeCamera.SetActive(true);
     }
 
     public void StopRewind()
@@ -80,5 +83,6 @@ public class Test_Rewind : MonoBehaviour
         isRewinding = false;
         rb.isKinematic = false;
         rb.constraints = RigidbodyConstraints.None;
+        timeCamera.SetActive(false);
     }
 }

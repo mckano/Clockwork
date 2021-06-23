@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointB: {x: 0, y: 0, z: 0}
   speedP: 16
+  timeCamera: {fileID: 3612952420446010003, guid: b731a04210c1efa4ca742b4007501b20, type: 3}
 --- !u!65 &2195354110786063669
 BoxCollider:
   m_ObjectHideFlags: 0

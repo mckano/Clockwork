@@ -12,6 +12,7 @@ public class MovementTests : MonoBehaviour
     int layer;
     float rayLength;
     public GameObject player;
+    public GameObject timeCamera;
 
     
 
@@ -51,13 +52,26 @@ public class MovementTests : MonoBehaviour
             // float xMove = Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * 1;
             // float zMove = Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime * 1;
             //  rb.velocity = new Vector3(xMove * moveSpeed, rb.velocity.y, zMove * moveSpeed);
- 
+           
             slowTimeManager.SlowMotion();
+           
+            //timeCamera.SetActive(true);
            
         } 
         else
         {
+           
             slowTimeManager.StopSlowMotion();
+          
+            //timeCamera.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            CameraVhsOn();
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            CameraVhsOff();
         }
             
         
@@ -86,6 +100,14 @@ public class MovementTests : MonoBehaviour
             isGrounded = false;
         }
 
+    }
+    public void CameraVhsOn()
+    {
+        timeCamera.SetActive(true);
+    }
+    public void CameraVhsOff()
+    {
+        timeCamera.SetActive(false);
     }
 }
 
