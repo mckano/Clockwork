@@ -7,6 +7,7 @@ public class TestTimeScript : MonoBehaviour
 {
     [SerializeField] private PostProcessLayer postProcessLayer;
 
+    public TimeBarControl timeBar;
     // public GameObject postProcessVolume;
     // Start is called before the first frame update
     void Start()
@@ -16,14 +17,22 @@ public class TestTimeScript : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (timeBar.currentTime > 0)
         {
-            SetPostProcessingLayerIsEnabled(true);
+            if (Input.GetKey(KeyCode.Z))
+            {
+                SetPostProcessingLayerIsEnabled(true);
+            }
+            else
+            {
+                SetPostProcessingLayerIsEnabled(false);
+            }
         }
-        else
+        else if(timeBar.currentTime <= 0)
         {
             SetPostProcessingLayerIsEnabled(false);
         }
+
        
     }
     public void SetPostProcessingLayerIsEnabled(bool _value)

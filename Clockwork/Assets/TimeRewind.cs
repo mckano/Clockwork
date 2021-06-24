@@ -5,10 +5,12 @@ using UnityEngine;
 public class TimeRewind : MonoBehaviour
 {
     public bool isRewinding = false;
+    public float reduceTimeBy;
     Rigidbody rb;
 
     List<TimePoint> timePoints;
-    
+
+    public TimeBarControl timeBar;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +23,20 @@ public class TimeRewind : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-            StartRewind();
-        if (Input.GetKeyUp(KeyCode.Q))
-            StopRewind();
+        if(timeBar.currentTime > 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                timeBar.SubstractTimeBar(reduceTimeBy);
+                StartRewind();
+            }
+            if (Input.GetKeyUp(KeyCode.Q))
+            {
+
+                StopRewind();
+            }
+        }
+
 
     }
 
