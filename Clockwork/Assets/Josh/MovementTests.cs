@@ -5,6 +5,8 @@ using UnityEngine;
 public class MovementTests : MonoBehaviour
 {
     public SlowTimeManager slowTimeManager;
+    public TimeBarControl timeBar;
+
     int jumpCount = 0;
     public int totalJumps = 3;
     bool isGrounded = true;
@@ -21,7 +23,6 @@ public class MovementTests : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         jumpCount = totalJumps;
         rb = GetComponent<Rigidbody>();
         layer = LayerMask.GetMask("Floor");
@@ -47,32 +48,37 @@ public class MovementTests : MonoBehaviour
                 Jump();
             }
         }
-        if (Input.GetKey(KeyCode.E))
+        if (timeBar.currentTime > 0)
         {
-            // float xMove = Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * 1;
-            // float zMove = Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime * 1;
-            //  rb.velocity = new Vector3(xMove * moveSpeed, rb.velocity.y, zMove * moveSpeed);
-           
-            slowTimeManager.SlowMotion();
-           
-            //timeCamera.SetActive(true);
-           
-        } 
-        else
-        {
-           
-            slowTimeManager.StopSlowMotion();
-          
-            //timeCamera.SetActive(false);
+            if (Input.GetKey(KeyCode.E))
+            {
+                // float xMove = Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * 1;
+                // float zMove = Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime * 1;
+                //  rb.velocity = new Vector3(xMove * moveSpeed, rb.velocity.y, zMove * moveSpeed);
+
+                slowTimeManager.SlowMotion();
+                timeBar.ReduceTimeBar();
+                //timeCamera.SetActive(true);
+            }
+            else
+            {
+                slowTimeManager.StopSlowMotion();
+                //timeCamera.SetActive(false);
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                CameraVhsOn();
+            }
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                CameraVhsOff();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            CameraVhsOn();
-        }
-        if (Input.GetKeyUp(KeyCode.E))
+        else if(timeBar.currentTime <= 0)
         {
             CameraVhsOff();
         }
+        
             
         
             

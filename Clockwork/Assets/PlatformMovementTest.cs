@@ -8,6 +8,8 @@ public class PlatformMovementTest : MonoBehaviour
     public float speedP;
     private float defaultSpeed = 16f;
     public GameObject timeCamera;
+
+    public TimeBarControl timeBar;
     IEnumerator Start()
     {
       
@@ -55,37 +57,42 @@ public class PlatformMovementTest : MonoBehaviour
 
             rate = 4.0f / time;
             // controll the speed of object with movement using Z to speed up and X to slow down
-            if (Input.GetKey(KeyCode.Z))
+            if(timeBar.currentTime > 0)
             {
+                if (Input.GetKey(KeyCode.Z))
+                {
+                    timeBar.ReduceTimeBar();
+                    rate = 20.0f / time;
 
-                rate = 20.0f / time;
-                
 
-            }
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                CameraVhsOn();
-            }
-            if (Input.GetKeyUp(KeyCode.Z))
-            {
-                CameraVhsOff();
+                }
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    CameraVhsOn();
+                }
+                if (Input.GetKeyUp(KeyCode.Z))
+                {
+                    CameraVhsOff();
+                }
+
+
+                if (Input.GetKey(KeyCode.X))
+                {
+                    timeBar.ReduceTimeBar();
+                    rate = 1.0f / time;
+
+                }
+
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    CameraVhsOn();
+                }
+                if (Input.GetKeyUp(KeyCode.X))
+                {
+                    CameraVhsOff();
+                }
             }
             
-           
-            if (Input.GetKey(KeyCode.X))
-            {
-                rate = 1.0f / time;
-                
-            }
-
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                CameraVhsOn();
-            }
-            if (Input.GetKeyUp(KeyCode.X))
-            {
-                CameraVhsOff();
-            }
 
 
             i += Time.deltaTime * rate;
