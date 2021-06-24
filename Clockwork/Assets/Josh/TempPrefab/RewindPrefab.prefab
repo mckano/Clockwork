@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8493571892657803430}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.89, y: 0.68, z: -5.27}
   m_LocalScale: {x: 1, y: 5.515622, z: 1}
   m_Children: []
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRewinding: 0
+  reduceTimeBy: 0
+  timeBar: {fileID: 0}
 --- !u!54 &8493571892657803424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,3 +144,4 @@ MonoBehaviour:
   isRewinding: 0
   maxCount: 0
   timeCamera: {fileID: 0}
+  timeBar: {fileID: 0}

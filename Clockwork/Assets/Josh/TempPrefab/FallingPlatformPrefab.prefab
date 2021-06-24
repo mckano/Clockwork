@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6223418974564270468}
   - component: {fileID: 6223418974564270459}
   - component: {fileID: 6223418974564270458}
-  - component: {fileID: 6223418974564270469}
+  - component: {fileID: 42056830}
   m_Layer: 0
   m_Name: FallingPlatformPrefab
   m_TagString: Ground
@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6223418974564270461}
-  m_LocalRotation: {x: -0, y: -0.512068, z: -0, w: 0.85894495}
+  m_LocalRotation: {x: 0, y: -0.5120654, z: 0, w: 0.85894644}
   m_LocalPosition: {x: -1.95, y: 6.94, z: -0.25}
   m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
   m_Children: []
@@ -140,7 +140,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &6223418974564270469
+--- !u!114 &42056830
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +149,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6223418974564270461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382bd07deede3144a92b89dfd483912b, type: 3}
+  m_Script: {fileID: 11500000, guid: adaa6c275d634564db04b2ff3688cf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isRewinding: 0
+  maxCount: 0
+  timeCamera: {fileID: 0}
+  timeBar: {fileID: 0}

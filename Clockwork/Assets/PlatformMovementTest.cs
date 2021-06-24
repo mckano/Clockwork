@@ -51,50 +51,37 @@ public class PlatformMovementTest : MonoBehaviour
         var rate = 4.0f / time;
         while (i < 1.0f)
         {
-            
-           
-          
-
             rate = 4.0f / time;
             // controll the speed of object with movement using Z to speed up and X to slow down
             if(timeBar.currentTime > 0)
             {
                 if (Input.GetKey(KeyCode.Z))
                 {
-                    timeBar.ReduceTimeBar();
                     rate = 20.0f / time;
-
-
                 }
-                if (Input.GetKeyDown(KeyCode.Z))
+                else if (Input.GetKeyDown(KeyCode.Z))
                 {
                     CameraVhsOn();
                 }
-                if (Input.GetKeyUp(KeyCode.Z))
+                else if (Input.GetKeyUp(KeyCode.Z))
                 {
                     CameraVhsOff();
                 }
-
-
-                if (Input.GetKey(KeyCode.X))
+                else if (Input.GetKey(KeyCode.X))
                 {
                     timeBar.ReduceTimeBar();
                     rate = 1.0f / time;
-
                 }
-
-                if (Input.GetKeyDown(KeyCode.X))
+                else if (Input.GetKeyDown(KeyCode.X))
                 {
                     CameraVhsOn();
                 }
-                if (Input.GetKeyUp(KeyCode.X))
+                else if (Input.GetKeyUp(KeyCode.X))
                 {
                     CameraVhsOff();
                 }
             }
             
-
-
             i += Time.deltaTime * rate;
             thisTransform.position = Vector3.Lerp(startPos, endPos, i);
             yield return null;

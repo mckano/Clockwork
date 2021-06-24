@@ -10,7 +10,7 @@ public class Test_Rewind : MonoBehaviour
     List<TimePoint> timePoints;
     public GameObject timeCamera;
 
-
+    public TimeBarControl timeBar;
 // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +21,13 @@ public class Test_Rewind : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Q))
-            StartRewind();
-        //if (Input.GetKeyUp(KeyCode.Q))
-        //    StopRewind();
-
-        Debug.Log(timePoints.Count);
+        if(timeBar.currentTime > 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                StartRewind();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -49,7 +49,6 @@ public class Test_Rewind : MonoBehaviour
         }
         else
             StopRewind();
-        
     }
 
     void Record()
