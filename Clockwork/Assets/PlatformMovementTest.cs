@@ -67,12 +67,12 @@ public class PlatformMovementTest : MonoBehaviour
                 {
                     CameraVhsOff();
                 }
-                else if (Input.GetKey(KeyCode.X))
+                if (Input.GetKey(KeyCode.X))
                 {
                     timeBar.ReduceTimeBar();
                     rate = 1.0f / time;
                 }
-                else if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.X))
                 {
                     CameraVhsOn();
                 }
