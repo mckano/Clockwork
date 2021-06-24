@@ -11,6 +11,8 @@ public class Pick_Time : MonoBehaviour
         if(moveScript != null)
         {
             moveScript.timeBar.currentTime += 2f;
+            if (moveScript.timeBar.currentTime > 5f)
+                moveScript.timeBar.currentTime = 5;
         }
         Destroy(gameObject);
     }
