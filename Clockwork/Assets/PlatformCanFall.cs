@@ -20,7 +20,12 @@ public class PlatformCanFall : MonoBehaviour
         if (collider.gameObject.name == "player")
         {
             isFalling = true;
+          
 
+        }
+       if (collider.gameObject.name == "Floor")
+        {
+            isFalling = false;
         }
     }
 

@@ -6,7 +6,7 @@ public class Test_Rewind : MonoBehaviour
 {
     public bool isRewinding = false;
     public bool maxCount;
-    Rigidbody rb;
+     Rigidbody rb;
     List<TimePoint> timePoints;
     public GameObject timeCamera;
 

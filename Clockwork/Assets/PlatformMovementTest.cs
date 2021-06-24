@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlatformMovementTest : MonoBehaviour
 {
+    public Vector3 pointA;
     public Vector3 pointB;
     public float speedP;
     private float defaultSpeed = 16f;
@@ -14,7 +15,7 @@ public class PlatformMovementTest : MonoBehaviour
     {
       
 
-        var pointA = transform.position;
+        //var pointA = transform.position;
         while (true)
         {
 
@@ -48,22 +49,22 @@ public class PlatformMovementTest : MonoBehaviour
     IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
     {
         var i = 0.0f;
-        var rate = 4.0f / time;
+        var rate = 1.0f / time;
         while (i < 1.0f)
         {
-            rate = 4.0f / time;
+           // rate = 1.0f / time;
             // controll the speed of object with movement using Z to speed up and X to slow down
             if(timeBar.currentTime > 0)
             {
                 if (Input.GetKey(KeyCode.Z))
                 {
-                    rate = 20.0f / time;
+                    rate = 50.0f / time;
                 }
-                else if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.Z))
                 {
                     CameraVhsOn();
                 }
-                else if (Input.GetKeyUp(KeyCode.Z))
+                if (Input.GetKeyUp(KeyCode.Z))
                 {
                     CameraVhsOff();
                 }
@@ -76,7 +77,7 @@ public class PlatformMovementTest : MonoBehaviour
                 {
                     CameraVhsOn();
                 }
-                else if (Input.GetKeyUp(KeyCode.X))
+                if (Input.GetKeyUp(KeyCode.X))
                 {
                     CameraVhsOff();
                 }
